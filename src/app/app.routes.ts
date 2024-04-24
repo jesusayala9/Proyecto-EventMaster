@@ -3,7 +3,7 @@ import { LoginComponent } from './domains/auth/login/login.component';
 import { RegisterComponent } from './domains/auth/register/register.component';
 import { ListComponent } from './domains/events/pages/list/list.component';
 import { SidebarComponent } from './domains/shared/components/sidebar/sidebar.component';
-
+import { SearchbarComponent } from './domains/shared/components/searchbar/searchbar.component';
 
 export const routes: Routes = [
   {
@@ -20,7 +20,11 @@ export const routes: Routes = [
     component: ListComponent,
   },
   {
-    path:'side',
-    component:SidebarComponent
-  }
+    path: 'side',
+    component: SidebarComponent,
+  },
+  {
+    path: 'search',
+    component: SearchbarComponent,
+  },
 ];
