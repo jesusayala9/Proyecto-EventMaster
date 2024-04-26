@@ -1,37 +1,81 @@
-<!--Card de un evento-->
-<div class="max-w-sm">
-  <div class="relative pl-8 sm:pl-32 py-6 group">
-    <!-- Purple label -->
-    <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
-    <div
+<!--lista de mis evento-->
+<!-- <div class="max-w-sm">
+  <div class="relative sm:pl-32 py-6 group"> -->
+<!-- Purple label -->
+<!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
+<!-- <div
       class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5"
     >
       <time
-        class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full"
-        >May, 2020</time
+        class="sm:absolute left-0 translate-y-0.5 flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full"
+        >May, 31, 2020 </time
       >
       <h5
         class="mb-2 text-2xl font-bold py-0.9 tracking-tight text-gray-900 dark:text-white"
       >
         Rodada DevFest
       </h5>
-    </div>
-    <!-- Content -->
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+    </div> -->
+<!-- Content -->
+<!-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
       Rodada con steven y los de alto cilindraje
     </p>
   </div>
-</div>
+</div> -->
 
-<!-- <a href="#">
-  <h5
-    class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-  >
-    Rodada salento
-  </h5>
-</a>
-<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-  Rodada con steven y los de alto cilindraje
-</p>
-<h1 class="mb-3 font-normal text-gray-700 dark:text-gray-400">Hora:</h1>
-<hr /> -->
+<style>
+  #journal-scroll::-webkit-scrollbar {
+    width: 4px;
+    cursor: pointer;
+    /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+  }
+  #journal-scroll::-webkit-scrollbar-track {
+    background-color: rgba(229, 231, 235, var(--bg-opacity));
+    cursor: pointer;
+    /*background: red;*/
+  }
+  #journal-scroll::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: #a0aec0;
+    /*outline: 1px solid slategrey;*/
+  }
+</style>
+
+<div class="container mx-72  flex justify-center items-center h-full ">
+  <div class="w-full pl-4 h-full flex flex-col ">
+    <div
+      class=" text-gray-900 dark:text-white font-bold px-5 py-2 shadow  "
+    >
+      Tracking events
+    </div>
+
+    <div
+      class="flex justify-center items-center dark:bg-gray-900 "
+      id="journal-scroll"
+    >
+      <table class="w-full ">
+        <tbody class="">
+          <tr
+            class="relative transform scale-100 text-xs py-1 border-b-2 border-blue-100 cursor-default "
+          >
+            <td class="pl-5 pr-3 whitespace-no-wrap">
+              <div class=" text-gray-900 dark:text-white">Today</div>
+              <div class=" text-gray-900 dark:text-white">07:45</div>
+            </td>
+
+            <td class="px-2 py-2 whitespace-no-wrap">
+              <div class="leading-5 text-gray-900 dark:text-white font-medium">
+                Taylor Otwel
+              </div>
+              <div class="leading-5  text-gray-900 dark:text-white">
+                Create pull request #1213
+                <a class="text-blue-500 hover:underline" href="#">#231231</a>
+              </div>
+              <div class="leading-5  text-gray-900 dark:text-white">Hello message</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SearchedComponent } from './domains/events/pages/searched/searched.component';
 import { EventCardComponent } from './domains/events/components/event-card/event-card.component';
 import { EventComponent } from './domains/events/components/event/event.component';
+import { UserInfoComponent } from './domains/auth/components/user-info/user-info.component';
 
 export const routes: Routes = [
   {
@@ -46,4 +47,8 @@ export const routes: Routes = [
     path: 'event',
     component: EventComponent,
   },
+  {
+    path:'user-info',
+    component: UserInfoComponent
+  }
 ];
