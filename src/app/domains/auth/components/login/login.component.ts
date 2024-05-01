@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+
+//Pendiente implemetar jwt para autentificar con token 
 @Component({
   selector: 'app-login',
   standalone: true,
