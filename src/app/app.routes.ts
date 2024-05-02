@@ -9,6 +9,7 @@ import { SearchedComponent } from './domains/events/pages/searched/searched.comp
 import { EventCardComponent } from './domains/events/components/event-card/event-card.component';
 import { EventComponent } from './domains/events/components/event/event.component';
 import { UserInfoComponent } from './domains/auth/components/user-info/user-info.component';
+import { EventFormComponent } from './domains/events/components/event-form/event-form.component';
 
 export const routes: Routes = [
   {
@@ -50,5 +51,9 @@ export const routes: Routes = [
   {
     path:'user-info',
     component: UserInfoComponent
+  },
+  {
+    path:'event-form',
+    component: EventFormComponent
   }
 ];
