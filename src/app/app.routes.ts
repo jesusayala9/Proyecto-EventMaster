@@ -13,21 +13,17 @@ import { EventFormComponent } from './domains/events/components/event-form/event
 
 export const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
     path: 'register',
     component: RegisterComponent,
   },
 
   {
-    path: 'list',
+    path: 'my-events',
     component: ListComponent,
   },
   {
     path: '',
-    component: AppComponent,
+    component: LoginComponent,
   },
   {
     path: 'search',
@@ -35,7 +31,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'search-c',
+    path: 'search-events',
     component: SearchedComponent,
   },
 
