@@ -6,6 +6,7 @@ import { SearchedComponent } from './domains/events/pages/searched/searched.comp
 import { UserInfoComponent } from './domains/auth/components/user-info/user-info.component';
 import { NgModule } from '@angular/core';
 import { EventFormComponent } from './domains/events/components/event-form/event-form.component';
+import { RegisterComponent } from './domains/auth/components/register/register.component';
 
 export const routes: Routes = [
   {
@@ -31,13 +32,14 @@ export const routes: Routes = [
       }
     ],
   },
-
   {
     path: 'login',
     component: LoginComponent,
   },
-
-
+  {
+    path:'register',
+    component:RegisterComponent
+  }
 ];
 
 @NgModule({
