@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-searchbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,  FormsModule],
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.css'],
 })
 export class SearchbarComponent {
-  hideMenu = signal(true);
+  searchTerm: string = ''; // Propiedad para almacenar el valor del searchbar
+  @Output() search: EventEmitter<string> = new EventEmitter<string>(); // Evento para emitir el término de búsqueda
 
-  toogleMenu() {
-    this.hideMenu.update((prevState) => !prevState);
+  onSubmit() {
+    this.search.emit(this.searchTerm); // Emitir el término de búsqueda cuando se envía el formulario
   }
 }

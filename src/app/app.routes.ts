@@ -7,6 +7,7 @@ import { UserInfoComponent } from './domains/auth/components/user-info/user-info
 import { NgModule } from '@angular/core';
 import { EventFormComponent } from './domains/events/components/event-form/event-form.component';
 import { RegisterComponent } from './domains/auth/components/register/register.component';
+import { EventCardComponent } from './domains/events/components/event-card/event-card.component';
 
 export const routes: Routes = [
   {
@@ -39,7 +40,11 @@ export const routes: Routes = [
   {
     path:'register',
     component:RegisterComponent
-  }
+  },
+  {
+      path: 'event-card',
+      component: EventCardComponent,
+    },
 ];
 
 @NgModule({

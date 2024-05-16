@@ -1,19 +1,8 @@
 <div class="bg-white dark:bg-gray-900 ml-64 min-h-screen max-w-full">
-  <div class="max-w-lg mx-auto py-14  lg:px-6">
-    <app-searchbar/>
+  <div class="max-w-lg mx-auto py-14 lg:px-6">
+    <app-searchbar (search)="searchEvents($event)" />
   </div>
-  <div class=" mx-10    sm:pl-14 lg:pl-0 grid grid-cols-4 gap-4">
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
-    <app-event-card/>
+  <div class="mx-10 grid grid-cols-5 gap-8">
+    <app-event-card *ngFor="let event of event()" [events]="event" />
   </div>
 </div>
