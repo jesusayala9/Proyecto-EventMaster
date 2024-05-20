@@ -5,6 +5,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 import { LayoutComponent } from './domains/layout/layout.component';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

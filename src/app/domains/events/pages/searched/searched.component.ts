@@ -1,11 +1,12 @@
-import { SearchService } from './../../../shared/services/search.service';
+import { SearchService } from '../../../shared/core/services/event/searchEvent/search.service';
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SearchbarComponent } from '../../../shared/components/searchbar/searchbar.component';
 import { EventCardComponent } from '../../components/event-card/event-card.component';
 import { Event } from '../../../shared/models/event.model';
 import { CommonModule } from '@angular/common';
-import { EventService } from '../../../shared/services/event.service';
+import { EventService } from '../../../shared/core/services/event/events/event.service';
+
 
 
 @Component({
@@ -19,6 +20,8 @@ export class SearchedComponent {
   event = signal<Event[]>([]);
   private eventService = inject(EventService);
   private searchService = inject(SearchService)
+
+
 
 
   ngOnInit() {
