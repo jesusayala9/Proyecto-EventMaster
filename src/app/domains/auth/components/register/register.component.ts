@@ -33,7 +33,7 @@ export class RegisterComponent {
         next: (response: User) => {
           console.log('User registered successfully', response);
           // Redirige a la página de login u otra página tras el registro exitoso
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
         },
         error: (error) => {
           console.error('Error registering user', error);

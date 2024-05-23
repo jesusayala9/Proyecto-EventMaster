@@ -13,6 +13,11 @@ import { AuthGuard } from './domains/shared/core/services/auth-guard/auth.guard'
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: '/login', // Redirige la ruta vacía al componente de inicio de sesión
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
     component: LoginComponent,
   },
   {
@@ -50,4 +55,3 @@ export const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-

@@ -1,7 +1,7 @@
 import { LoginUser } from './../../../models/loginUser.model';
 import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { User } from '../../../models/user.model';
 import { Token } from '../../../models/token.models';
 import { Router } from '@angular/router';
@@ -11,11 +11,9 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
   private tokenKey = 'access_token';
-  private router: Router;
+  private currentUserId: number | null = null;
 
-  constructor(private http: HttpClient,  router: Router) {
-    this.router = router;
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   loginUser(user: LoginUser): Observable<Token> {
     const body = new HttpParams()
@@ -26,17 +24,41 @@ export class LoginService {
       'Content-Type': 'application/x-www-form-urlencoded',
     });
 
-    return this.http.post<Token>('http://127.0.0.1:8000/auth/token', body.toString(), { headers });
+    return this.http.post<Token>('http://127.0.0.1:8000/auth/token', body.toString(), { headers }).pipe(
+      tap((token: Token) => {
+        localStorage.setItem(this.tokenKey, token.access_token);
+      })
+    );
   }
 
   isAuthenticated(): boolean {
-    const token = localStorage.getItem(this.tokenKey);
-    return token !== null;
+    return localStorage.getItem(this.tokenKey) !== null;
   }
 
   logout() {
     localStorage.removeItem(this.tokenKey);
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
+  }
+
+  getCurrentUser(): Observable<User | null> {
+    const token = localStorage.getItem(this.tokenKey);
+    if (!token) {
+      return of(null);
+    }
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+    });
+
+    return this.http.get<User>('http://127.0.0.1:8000/auth/me', { headers }).pipe(
+      tap((user: User) => {
+        this.currentUserId = user.id ?? null;
+      })
+    );
+  }
+
+  getCurrentUserId(): number | null {
+    return this.currentUserId;
   }
 
 }
