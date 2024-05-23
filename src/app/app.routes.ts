@@ -8,11 +8,17 @@ import { NgModule } from '@angular/core';
 import { EventFormComponent } from './domains/events/components/event-form/event-form.component';
 import { RegisterComponent } from './domains/auth/components/register/register.component';
 import { EventCardComponent } from './domains/events/components/event-card/event-card.component';
+import { AuthGuard } from './domains/shared/core/services/auth-guard/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
+    component: LoginComponent,
+  },
+  {
+    path: 'index',
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'search-events', pathMatch: 'full' },
       {
@@ -28,67 +34,20 @@ export const routes: Routes = [
         component: ListComponent,
       },
       {
-          path:'event-form',
-          component: EventFormComponent
-      }
+        path: 'event-form',
+        component: EventFormComponent,
+      },
     ],
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'register',
+    component: RegisterComponent,
   },
-  {
-    path:'register',
-    component:RegisterComponent
-  },
-  {
-      path: 'event-card',
-      component: EventCardComponent,
-    },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 
-// {
-//   path: 'login',
-//   component: LoginComponent,
-// },
-
-// {
-//   path: 'my-events',
-//   component: ListComponent,
-// },
-// {
-//   path: '',
-//   component: LayoutComponent,
-// },
-// {
-//   path: 'search',
-//   component: SearchbarComponent,
-// },
-
-// {
-//   path: 'search-events',
-//   component: SearchedComponent,
-// },
-
-// {
-//   path: 'event-card',
-//   component: EventCardComponent,
-// },
-
-// {
-//   path: 'event',
-//   component: EventComponent,
-// },
-// {
-//   path:'user-info',
-//   component: UserInfoComponent
-// },
-// {
-//   path:'event-form',
-//   component: EventFormComponent

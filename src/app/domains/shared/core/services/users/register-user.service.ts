@@ -13,6 +13,6 @@ export class RegisterUserService {
   constructor() {}
 
   postUser(user: RegisterUser): Observable<User> {
-    return this.http.post<User>('http://127.0.0.1:8000/users', user);
+    return this.http.post<User>('http://127.0.0.1:8000/auth/register', user);
   }
 }
