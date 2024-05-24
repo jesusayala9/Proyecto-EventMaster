@@ -9,9 +9,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, SidebarComponent, ListComponent, LayoutComponent, CommonModule],
+  imports: [RouterOutlet, RouterLink, CommonModule,],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'proyecto-event-master';

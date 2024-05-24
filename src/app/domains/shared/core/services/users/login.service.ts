@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
   private tokenKey = 'access_token';
-  private currentUserId: number | null = null;
+  private userIdKey = 'user_id'; // Clave para almacenar el ID del usuario
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -27,6 +27,7 @@ export class LoginService {
     return this.http.post<Token>('http://127.0.0.1:8000/auth/token', body.toString(), { headers }).pipe(
       tap((token: Token) => {
         localStorage.setItem(this.tokenKey, token.access_token);
+        this.getCurrentUser().subscribe(); // Obtener y guardar el ID del usuario
       })
     );
   }
@@ -37,6 +38,7 @@ export class LoginService {
 
   logout() {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.userIdKey);
     this.router.navigate(['/login']);
   }
 
@@ -52,13 +54,15 @@ export class LoginService {
 
     return this.http.get<User>('http://127.0.0.1:8000/auth/me', { headers }).pipe(
       tap((user: User) => {
-        this.currentUserId = user.id ?? null;
+        if (user && user.id) {
+          localStorage.setItem(this.userIdKey, user.id.toString());
+        }
       })
     );
   }
 
   getCurrentUserId(): number | null {
-    return this.currentUserId;
+    const userId = localStorage.getItem(this.userIdKey);
+    return userId ? parseInt(userId, 10) : null;
   }
-
 }

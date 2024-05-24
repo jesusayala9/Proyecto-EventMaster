@@ -55,6 +55,7 @@ export class EventFormComponent {
                 (response: Event | undefined) => {
                   if (response) {
                     console.log('Evento creado satisfactoriamente', response);
+                    alert('Evento creado satisfactoriamente');
                     form.resetForm();
                   } else {
                     console.error('No se recibió una respuesta del servidor');
@@ -62,6 +63,7 @@ export class EventFormComponent {
                 },
                 (error) => {
                   console.error('Error al crear el evento', error);
+                  alert('Error al crear el evento');
                 }
               ).catch(error => console.error('Petición de creación fallida', error));
             } else {
@@ -81,22 +83,3 @@ export class EventFormComponent {
   }
   }
 
-  // constructor(private router: Router) {}
-
-  // createEvent(form: NgForm) {
-  //   if (form.valid) {
-  //     console.log('Event to create:', this.event); // Imprimir los datos del evento antes de enviar la solicitud
-  //     this.createEventService.postEvent(this.event).subscribe({
-  //       next: (response: Event) => {
-  //         console.log('Evento creado satisfactoriamente', response);
-  //         form.resetForm();
-  //       },
-  //       error: (error) => {
-  //         console.error('Error al crear el evento', error);
-  //       },
-  //       complete: () => {
-  //         console.log('Petición de creación completada');
-  //       },
-  //     });
-  //   }
-  // }

@@ -11,9 +11,9 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule],
+  imports: [RouterLink, CommonModule, FormsModule,],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css',
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
   private registerService = inject(RegisterUserService);
@@ -24,24 +24,35 @@ export class RegisterComponent {
     password: '',
   };
 
+  confirmPassword = '';
+
   constructor(private router: Router) {}
 
   registerUser(form: NgForm) {
-    if (form.valid) {
-      console.log('User to register:', this.user)
+    if (form.valid && this.user.password === this.confirmPassword) {
+      console.log('User to register:', this.user);
       this.registerService.postUser(this.user).subscribe({
         next: (response: User) => {
           console.log('User registered successfully', response);
+          alert('Usuario registrado con éxito');
           // Redirige a la página de login u otra página tras el registro exitoso
           this.router.navigate(['/']);
         },
         error: (error) => {
-          console.error('Error registering user', error);
+          console.error('Error al registrar el usuario', error);
+          alert('Error al registrar el usuario');
         },
         complete: () => {
-          console.log('Registration request completed');
+          console.log('Solicitud de registro completada');
         },
       });
+    } else {
+      if (this.user.password !== this.confirmPassword) {
+        alert('Las contraseñas deben coincidir');
+      } else {
+        alert('Todos los campos son obligatorios');
+      }
     }
   }
 }
+

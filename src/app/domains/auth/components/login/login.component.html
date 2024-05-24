@@ -28,10 +28,12 @@
               name="name"
               id="name"
               [(ngModel)]="user.username"
+              #name="ngModel"
               class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="demolinkisite.com"
               required=""
             />
+            <div *ngIf="name.invalid && name.touched" class="text-red-500 text-sm">Name is required</div>
           </div>
           <div>
             <label
@@ -45,9 +47,11 @@
               id="password"
               placeholder="••••••••"
               [(ngModel)]="user.password"
+              #password="ngModel"
               class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required=""
             />
+            <div *ngIf="password.invalid && password.touched" class="text-red-500 text-sm">Password is required</div>
           </div>
           <div class="flex items-center justify-between">
             <div class="flex items-start">
@@ -90,6 +94,7 @@
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- md:h-screen lg:py-0  -->
