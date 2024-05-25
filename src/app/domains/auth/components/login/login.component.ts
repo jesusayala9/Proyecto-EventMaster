@@ -23,10 +23,12 @@ export class LoginComponent {
     password: '',
   };
 
+  loginError = false; // Variable para controlar la visibilidad de la alerta de contraseña incorrecta
+
   constructor(private router: Router) {}
 
   loginUser(form: NgForm) {
-    if (form.valid) {
+    if (form.valid) { // Verificar si el formulario es válido
       console.log('User log:', this.user);
       this.loginService.loginUser(this.user).subscribe({
         next: (response: Token) => {
@@ -38,6 +40,8 @@ export class LoginComponent {
         },
         error: (error) => {
           console.error('Error logging in user', error);
+          alert('Contraseña incorrecta');
+          this.loginError = true; // Mostrar la alerta de contraseña incorrecta
         },
         complete: () => {
           console.log('Login request completed');

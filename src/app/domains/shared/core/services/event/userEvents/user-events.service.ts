@@ -22,14 +22,39 @@ export class UserEventsService {
     }
 
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get<Event[]>(`http://127.0.0.1:8000/users/${userId}/events`, { headers }).pipe(
-      catchError(error => {
-        console.error('Error fetching user events', error);
-        return of([]); // Devuelve un Observable vacío en caso de error
+    return this.http
+      .get<Event[]>(`http://127.0.0.1:8000/users/${userId}/events`, { headers })
+      .pipe(
+        catchError((error) => {
+          console.error('Error fetching user events', error);
+          return of([]); // Devuelve un Observable vacío en caso de error
+        })
+      );
+  }
+
+  deleteEvent(userId: string, eventId: number): Observable<any> {
+    const token = localStorage.getItem(this.tokenKey);
+
+    if (!token || !userId) {
+      return of(null); // Devuelve un Observable vacío si el usuario no está autenticado
+    }
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http
+      .delete(`http://127.0.0.1:8000/users/${userId}/events/${eventId}`, {
+        headers,
       })
-    );
+      .pipe(
+        catchError((error) => {
+          console.error('Error deleting event', error);
+          return of(null); // Devuelve un Observable vacío en caso de error
+        })
+      );
   }
 }

@@ -127,7 +127,7 @@
 
       <li>
         <a
-        href="#"
+          href="#"
           (click)="logout()"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
@@ -152,6 +152,29 @@
           <span class="flex-1 ms-3 whitespace-nowrap">Salir</span>
         </a>
       </li>
+
+      <li>
+        <a
+          class="flex items-center absolute bottom-0 left-0 w-full p-2 text-gray-900 rounded-lg dark:text-white"
+        >
+          <svg
+            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 18 18"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-5.5-2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 12a5.99 5.99 0 0 0-4.793 2.39A6.483 6.483 0 0 0 10 16.5a6.483 6.483 0 0 0 4.793-2.11A5.99 5.99 0 0 0 10 12Z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span class="flex-1 ms-3 whitespace-nowrap">{{username.charAt(0).toUpperCase() + username.slice(1)}}</span>
+        </a>
+      </li>
+
     </ul>
   </div>
 </aside>
+

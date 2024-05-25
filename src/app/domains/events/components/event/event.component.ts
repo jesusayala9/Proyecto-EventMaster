@@ -28,4 +28,27 @@ export class EventComponent implements OnInit {
       }
     });
   }
+
+  onDeleteEvent(eventId: number) {
+    const userId = localStorage.getItem('user_id'); // Obtener el ID del usuario logeado
+    if (!userId) {
+      console.error('User ID not found');
+      return;
+    }
+
+    this.userEventsService.deleteEvent(userId, eventId).subscribe({
+      next: () => {
+        console.log('Evento eliminado');
+        alert('Evento eliminado');
+        this.events = this.events.filter(event => event.id !== eventId);
+      },
+      error: (error) => {
+        alert('Error al eliminar el evento');
+        console.error('Error al eliminar el evento', error);
+      }
+    });
+  }
+
+
+
 }
