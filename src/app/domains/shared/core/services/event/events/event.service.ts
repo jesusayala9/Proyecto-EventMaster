@@ -10,8 +10,7 @@ export class EventService {
 
   constructor() {}
 
-  getEvents(){
-    return this.http.get<Event[]>('http://127.0.0.1:8000/events')
+  getEvents() {
+    return this.http.get<Event[]>('http://127.0.0.1:8000/events');
   }
-
 }

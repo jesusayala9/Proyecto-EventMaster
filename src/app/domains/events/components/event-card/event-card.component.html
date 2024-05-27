@@ -1,28 +1,34 @@
 <div
-  class="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 "
+  class="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
 >
   <h5
     class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
   >
-  {{ events.title }}
-
+    {{ events.title }}
   </h5>
-  <p class="font-normal text-gray-700 dark:text-gray-400 ">
+  <p class="font-normal text-gray-700 dark:text-gray-400">
     {{ events.description }}
   </p>
-  <ul
-    class="mb-2 text-sm tracking-tight text-gray-900 dark:text-white pt-2"
-  >
-  <li><span class="font-bold">Cuando:</span>  {{ events.start_time }} </li>
-  <li><span class="font-bold">Donde:</span> {{ events.location }}</li>
-  <li><span class="font-bold">Categoria:</span> {{ events.category }}</li>
-  <li><span class="font-bold">Tipo:</span> {{ events.type }}</li>
+  <ul class="mb-2 text-sm tracking-tight text-gray-900 dark:text-white pt-2">
+    <li>
+      <span class="font-bold">Cuando:</span>
+      {{ events.start_time | date : "dd/MM/yyyy" }}
+    </li>
+    <li><span class="font-bold">Donde:</span> {{ events.location }}</li>
+    <li><span class="font-bold">Categoria:</span> {{ events.category }}</li>
+    <li><span class="font-bold">Tipo:</span> {{ events.type }}</li>
+    <li *ngIf="events.audience > 1 || events.audience == 0; else elseBlock">
+      {{ events.audience }} Personas Interesadas
+    </li>
+    <ng-template #elseBlock
+      >{{ events.audience }} Persona Interesada</ng-template
+    >
   </ul>
-  <a
-    href="#"
-    class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-    >Asistir</a
+  <button
+    (click)="onJoinClick()"
+    type="button"
+    class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
   >
+    Asistir
+  </button>
 </div>
-
-

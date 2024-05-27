@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Event } from '../../../shared/models/event.model';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class EventCardComponent {
   @Input() events!: Event;
+  @Output() joinEvent = new EventEmitter<number>();
 
+
+  onJoinClick() {
+    if (this.events && this.events.id) {
+      this.joinEvent.emit(this.events.id);
+    } else {
+      console.error('Event ID is undefined');
+    }
+  }
 }
-
-

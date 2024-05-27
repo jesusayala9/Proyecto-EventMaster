@@ -1,4 +1,3 @@
-import { User } from "./user.model";
 export interface Event {
   id: number;
   title: string;
@@ -9,5 +8,5 @@ export interface Event {
   audience: number;
   type: string;
   location: string;
-  creator_id:number;
+  creator_id: number;
 }
