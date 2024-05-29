@@ -110,6 +110,7 @@ export class UpdateEventComponent implements OnInit {
                 text: 'Evento actualizado exitosamente',
                 icon: 'success',
               });
+              form.resetForm();
             },
             error: (error) => {
               console.error('Error updating event', error);
@@ -117,6 +118,7 @@ export class UpdateEventComponent implements OnInit {
                 text: 'Error al actualizar el evento',
                 icon: 'error',
               });
+
             },
           });
       } else {
