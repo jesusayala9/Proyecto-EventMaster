@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Token } from '../../../shared/models/token.models';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +41,10 @@ export class LoginComponent {
         },
         error: (error) => {
           console.error('Error logging in user', error);
-          alert('Contraseña incorrecta');
+          Swal.fire({
+            text: 'Contraseña incorrecta',
+            icon: 'error',
+          });
           this.loginError = true; // Mostrar la alerta de contraseña incorrecta
         },
         complete: () => {

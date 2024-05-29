@@ -9,6 +9,7 @@ import { EventFormComponent } from './domains/events/components/event-form/event
 import { RegisterComponent } from './domains/auth/components/register/register.component';
 import { EventCardComponent } from './domains/events/components/event-card/event-card.component';
 import { AuthGuard } from './domains/shared/core/services/auth-guard/auth.guard';
+import { UpdateEventComponent } from './domains/events/components/update-event/update-event.component';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
       {
         path: 'event-form',
         component: EventFormComponent,
+      },
+      {
+        path: 'update-event/:id',
+        component: UpdateEventComponent,
       },
     ],
   },

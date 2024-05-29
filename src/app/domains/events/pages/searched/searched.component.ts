@@ -7,6 +7,7 @@ import { Event } from '../../../shared/models/event.model';
 import { CommonModule } from '@angular/common';
 import { EventService } from '../../../shared/core/services/event/events/event.service';
 import { UserEventsService } from '../../../shared/core/services/event/userEvents/user-events.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-searched',
@@ -61,12 +62,18 @@ export class SearchedComponent implements OnInit {
         const isAlreadyJoined = userEvents.some(event => event.id === eventId);
 
         if (isAlreadyJoined) {
-          alert('Ya estás inscrito a este evento.');
+          Swal.fire({
+            text: 'Ya estas incrito en este evento',
+            icon: 'error',
+          });
         } else {
           this.userEventsService.addUserToEvent(userId, eventId).subscribe({
             next: () => {
               console.log('User joined event with ID:', eventId);
-              alert('Te has inscrito al evento exitosamente.');
+              Swal.fire({
+                text: 'Inscrito satisfactoriamente al evento',
+                icon: 'success',
+              });
             },
             error: (error) => {
               console.error('Error joining user to event:', error);

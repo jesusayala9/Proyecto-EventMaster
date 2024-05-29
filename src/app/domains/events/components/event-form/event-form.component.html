@@ -20,6 +20,7 @@
       >
         Titulo de tu Evento
       </label>
+      <div *ngIf="title.invalid && title.touched" class="text-red-500 text-sm">El titulo es obligatorio</div>
     </div>
     <div class="relative z-0 w-full mb-5 group">
       <input
@@ -38,6 +39,7 @@
       >
         Descripcion
       </label>
+      <div *ngIf="description.invalid && description.touched" class="text-red-500 text-sm">La descripcion es obligatoria</div>
     </div>
     <div class="relative z-0 w-full mb-5 group">
       <input
@@ -56,6 +58,7 @@
       >
         Categoria
       </label>
+      <div *ngIf="category.invalid && category.touched" class="text-red-500 text-sm">La Categoria es obligatoria</div>
     </div>
     <div class="grid md:grid-cols-2 md:gap-6">
       <div class="relative z-0 w-full mb-5 group">
@@ -75,6 +78,7 @@
         >
           Fecha de Inicio
         </label>
+        <div *ngIf="start_time.invalid && start_time.touched" class="text-red-500 text-sm">Fecha de incio es obligatoria</div>
       </div>
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -93,6 +97,7 @@
         >
           Fecha de Finalizacion
         </label>
+        <div *ngIf="finish_time.invalid && finish_time.touched" class="text-red-500 text-sm">Fecha de cierre es obligatoria</div>
       </div>
     </div>
     <div class="grid md:grid-cols-2 md:gap-6">
@@ -112,6 +117,7 @@
           <option value="Virtual"></option>
           <option value="Presencial"></option>
         </datalist>
+        <div *ngIf="type.invalid && type.touched" class="text-red-500 text-sm">Tipo de evento es obligatoria</div>
       </div>
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -130,6 +136,7 @@
         >
           Lugar
         </label>
+        <div *ngIf="location.invalid && location.touched" class="text-red-500 text-sm">Lugar es obligatorio</div>
       </div>
     </div>
     <button

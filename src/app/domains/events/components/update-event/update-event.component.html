@@ -1,0 +1,328 @@
+<!-- <div class="bg-white dark:bg-gray-900 ml-64 min-h-screen max-w-full">
+  <h2
+    class="text-3xl font-extrabold leading-tight tracking-tight mx-auto text-center text-gray-900 dark:text-white pt-12"
+  >
+    Actualiza tu Evento
+  </h2>
+  <form class="max-w-md mx-auto pt-6"  #registerForm="ngForm">
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        name="title"
+        id="title"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        [(ngModel)]="title"
+        #titleInput="ngModel"
+      />
+      <label
+        for="title"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Nuevo titulo de tu Evento
+      </label>
+      <div *ngIf="titleInput.invalid && titleInput.touched" class="text-red-500 text-sm">
+        El titulo es obligatorio
+      </div>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        name="description"
+        id="description"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        [(ngModel)]="description"
+        #descriptionInput="ngModel"
+      />
+      <label
+        for="description"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Nueva Descripcion
+      </label>
+      <div *ngIf="descriptionInput.invalid && descriptionInput.touched" class="text-red-500 text-sm">
+        La descripcion es obligatoria
+      </div>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        name="category"
+        id="category"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        [(ngModel)]="category"
+        #categoryInput="ngModel"
+      />
+      <label
+        for="category"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Nueva Categoria
+      </label>
+      <div
+        *ngIf="categoryInput.invalid && categoryInput.touched"
+        class="text-red-500 text-sm"
+      >
+        La Categoria es obligatoria
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="datetime-local"
+          name="start_time"
+          id="start_time"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+          [(ngModel)]="start_time"
+          #start_timeInput="ngModel"
+        />
+        <label
+          for="start_time"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >
+          Nueva Fecha de Inicio
+        </label>
+        <div
+          *ngIf="start_timeInput.invalid && start_timeInput.touched"
+          class="text-red-500 text-sm"
+        >
+          Fecha de incio es obligatoria
+        </div>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="datetime-local"
+          name="finish_time"
+          id="finish_time"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+          [(ngModel)]="finish_time"
+          #finish_timeInput="ngModel"
+        />
+        <label
+          for="finish_time"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >
+          Nueva Fecha de Finalizacion
+        </label>
+        <div
+          *ngIf="finish_timeInput.invalid && finish_timeInput.touched"
+          class="text-red-500 text-sm"
+        >
+          Fecha de cierre es obligatoria
+        </div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          list="list"
+          type="text"
+          name="type"
+          id="type"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder="Nuevo Tipo"
+          [(ngModel)]="type"
+          #typeInput="ngModel"
+        />
+        <datalist name="" id="list">
+          <option value="Virtual"></option>
+          <option value="Presencial"></option>
+        </datalist>
+        <div *ngIf="typeInput.invalid && typeInput.touched" class="text-red-500 text-sm">
+          Tipo de evento es obligatoria
+        </div>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="text"
+          name="location"
+          id="location"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+          [(ngModel)]="location"
+          #locationInput="ngModel"
+        />
+        <label
+          for="location"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >
+          Nuevo Lugar
+        </label>
+        <div
+          *ngIf="locationInput.invalid && locationInput.touched"
+          class="text-red-500 text-sm"
+        >
+          Lugar es obligatorio
+        </div>
+      </div>
+      <input type="hidden" name="creator_id" [value]="currentUserId" />
+    </div>
+    <button
+      type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Actualizar
+    </button>
+  </form>
+</div> -->
+
+<div class="bg-white dark:bg-gray-900 ml-64 min-h-screen max-w-full">
+  <h2 class="text-3xl font-extrabold leading-tight tracking-tight mx-auto text-center text-gray-900 dark:text-white pt-12">
+    Actualiza tu Evento
+  </h2>
+  <form class="max-w-md mx-auto pt-6" #registerForm="ngForm" (ngSubmit)="onUpdateEvent(registerForm)">
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        name="title"
+        id="title"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        [(ngModel)]="title"
+        #titleInput="ngModel"
+      />
+      <label for="title" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+        Nuevo titulo de tu Evento
+      </label>
+      <div *ngIf="titleInput.invalid && titleInput.touched" class="text-red-500 text-sm">
+        El titulo es obligatorio
+      </div>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        name="description"
+        id="description"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        [(ngModel)]="description"
+        #descriptionInput="ngModel"
+      />
+      <label for="description" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+        Nueva Descripcion
+      </label>
+      <div *ngIf="descriptionInput.invalid && descriptionInput.touched" class="text-red-500 text-sm">
+        La descripcion es obligatoria
+      </div>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        name="category"
+        id="category"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        [(ngModel)]="category"
+        #categoryInput="ngModel"
+      />
+      <label for="category" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+        Nueva Categoria
+      </label>
+      <div *ngIf="categoryInput.invalid && categoryInput.touched" class="text-red-500 text-sm">
+        La Categoria es obligatoria
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="datetime-local"
+          name="start_time"
+          id="start_time"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+          [(ngModel)]="start_time"
+          #start_timeInput="ngModel"
+        />
+        <label for="start_time" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+          Nueva Fecha de Inicio
+        </label>
+        <div *ngIf="start_timeInput.invalid && start_timeInput.touched" class="text-red-500 text-sm">
+          Fecha de incio es obligatoria
+        </div>
+      </div>
+
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="datetime-local"
+          name="finish_time"
+          id="finish_time"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+          [(ngModel)]="finish_time"
+          #finish_timeInput="ngModel"
+        />
+        <label for="finish_time" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+          Nueva Fecha de Finalizacion
+        </label>
+        <div *ngIf="finish_timeInput.invalid && finish_timeInput.touched" class="text-red-500 text-sm">
+          Fecha de cierre es obligatoria
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          list="list"
+          type="text"
+          name="type"
+          id="type"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder="Nuevo Tipo"
+          [(ngModel)]="type"
+          #typeInput="ngModel"
+        />
+        <datalist name="" id="list">
+          <option value="Virtual"></option>
+          <option value="Presencial"></option>
+        </datalist>
+        <div *ngIf="typeInput.invalid && typeInput.touched" class="text-red-500 text-sm">
+          Tipo de evento es obligatoria
+        </div>
+      </div>
+
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="text"
+          name="location"
+          id="location"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+          [(ngModel)]="location"
+          #locationInput="ngModel"
+        />
+        <label for="location" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+          Nuevo Lugar
+        </label>
+        <div *ngIf="locationInput.invalid && locationInput.touched" class="text-red-500 text-sm">
+          Lugar es obligatorio
+        </div>
+      </div>
+      <input type="hidden" name="creator_id" [value]="currentUserId" />
+    </div>
+
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      Actualizar
+    </button>
+  </form>
+</div>
+

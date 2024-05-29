@@ -7,6 +7,7 @@ import { RegisterUser } from '../../../shared/models/registerUser.models';
 import { Router } from '@angular/router';
 import { User } from '../../../shared/models/user.model';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -34,13 +35,19 @@ export class RegisterComponent {
       this.registerService.postUser(this.user).subscribe({
         next: (response: User) => {
           console.log('User registered successfully', response);
-          alert('Usuario registrado con éxito');
+          Swal.fire({
+            text: 'Usuario registrado exitosamente',
+            icon: 'success',
+          });
           // Redirige a la página de login u otra página tras el registro exitoso
           this.router.navigate(['/']);
         },
         error: (error) => {
           console.error('Error al registrar el usuario', error);
-          alert('Error al registrar el usuario');
+          Swal.fire({
+            text: 'Error al registrar el usuario',
+            icon: 'error',
+          });
         },
         complete: () => {
           console.log('Solicitud de registro completada');
@@ -48,9 +55,15 @@ export class RegisterComponent {
       });
     } else {
       if (this.user.password !== this.confirmPassword) {
-        alert('Las contraseñas deben coincidir');
+        Swal.fire({
+          text: 'Las contraseñas no coinciden',
+          icon: 'error',
+        });;
       } else {
-        alert('Todos los campos son obligatorios');
+        Swal.fire({
+          text: 'Todos los campos son obligatorios',
+          icon: 'error',
+        });;
       }
     }
   }
