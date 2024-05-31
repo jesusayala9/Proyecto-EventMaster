@@ -35,11 +35,7 @@ export class RegisterComponent {
       this.registerService.postUser(this.user).subscribe({
         next: (response: User) => {
           console.log('User registered successfully', response);
-          // Swal.fire({
-          //   text: 'Usuario registrado exitosamente',
-          //   icon: 'success',
-          // });
-          Swal.fire({
+            Swal.fire({
             icon: "success",
             title: "Bienvenido",
             text: "Usuario registrado exitosamente",
