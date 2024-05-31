@@ -35,9 +35,15 @@ export class RegisterComponent {
       this.registerService.postUser(this.user).subscribe({
         next: (response: User) => {
           console.log('User registered successfully', response);
+          // Swal.fire({
+          //   text: 'Usuario registrado exitosamente',
+          //   icon: 'success',
+          // });
           Swal.fire({
-            text: 'Usuario registrado exitosamente',
-            icon: 'success',
+            icon: "success",
+            title: "Bienvenido",
+            text: "Usuario registrado exitosamente",
+            footer: '<a>Te hemos enviado un correo de bienvenida</a>'
           });
           // Redirige a la página de login u otra página tras el registro exitoso
           this.router.navigate(['/']);
