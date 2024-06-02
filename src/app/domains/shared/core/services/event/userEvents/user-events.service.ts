@@ -1,12 +1,14 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Event } from '../../../../models/event.model';
 import { Observable, catchError, of } from 'rxjs';
+import { environment } from '../../../../../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserEventsService {
+  private apiUrl = environment.apiUrl;
   private tokenKey = 'access_token';
   private userIdKey = 'user_id';
 
@@ -25,7 +27,7 @@ export class UserEventsService {
     });
 
     return this.http
-      .get<Event[]>(`http://127.0.0.1:8000/users/${userId}/events`, { headers })
+      .get<Event[]>(`${this.apiUrl}/users/${userId}/events`, { headers })
       .pipe(
         catchError((error) => {
           console.error('Error fetching user events', error);
@@ -46,7 +48,7 @@ export class UserEventsService {
     });
 
     return this.http
-      .delete(`http://127.0.0.1:8000/users/${userId}/events/${eventId}`, {
+      .delete(`${this.apiUrl}/users/${userId}/events/${eventId}`, {
         headers,
       })
       .pipe(
@@ -70,7 +72,7 @@ export class UserEventsService {
 
     return this.http
       .put(
-        `http://127.0.0.1:8000/users/${userId}/event/${eventId}`,
+        `${this.apiUrl}/users/${userId}/event/${eventId}`,
         {}, // Cuerpo de la solicitud vacío, ya que estás pasando los datos en la URL
         { headers }
       )
@@ -94,7 +96,7 @@ export class UserEventsService {
     });
 
     return this.http
-      .get<Event[]>(`http://127.0.0.1:8000/users/${userId}/created-events`, {
+      .get<Event[]>(`${this.apiUrl}/users/${userId}/created-events`, {
         headers,
       })
       .pipe(

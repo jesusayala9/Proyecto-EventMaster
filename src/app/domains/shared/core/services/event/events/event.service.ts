@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Event } from '../../../../models/event.model';
-
+import { environment } from '../../../../../../environments/environments.prod';
 @Injectable({
   providedIn: 'root',
 })
@@ -11,6 +11,7 @@ export class EventService {
   constructor() {}
 
   getEvents() {
-    return this.http.get<Event[]>('http://127.0.0.1:8000/events');
+    const apiUrl = environment.apiUrl;
+    return this.http.get<Event[]>(`${apiUrl}/events`);
   }
 }

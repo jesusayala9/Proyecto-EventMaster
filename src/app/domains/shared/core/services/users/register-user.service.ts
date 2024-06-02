@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { RegisterUser } from '../../../models/registerUser.models';
 import { Observable } from 'rxjs';
 import { User } from '../../../models/user.model';
+import { environment } from './../../../../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class RegisterUserService {
   constructor() {}
 
   postUser(user: RegisterUser): Observable<User> {
-    return this.http.post<User>('http://127.0.0.1:8000/auth/register', user);
+    const apiUrl = environment.apiUrl;
+    return this.http.post<User>(`${apiUrl}/auth/register`, user);
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Event } from '../../../../models/event.model';
+import { environment } from '../../../../../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class SearchService {
   constructor() {}
 
   getEventsby(query: string){
-    return this.http.get<Event[]>(`http://127.0.0.1:8000/events/search/?Title_or_Category_or_Type=${query}`)
+    const apiUrl = environment.apiUrl;
+    return this.http.get<Event[]>(`${apiUrl}/events/search/?Title_or_Category_or_Type=${query}`)
   }
 
 }

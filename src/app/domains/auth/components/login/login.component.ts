@@ -52,5 +52,11 @@ export class LoginComponent {
         },
       });
     }
+    else {
+      Swal.fire({
+        text: 'Todos los campos son obligatorios',
+        icon: 'error',
+      });;
+    }
   }
 }
