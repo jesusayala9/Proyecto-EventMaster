@@ -11,11 +11,11 @@ export class UpdateEventService {
 
   getEventDetails(eventId: string): Observable<Event> {
     const apiUrl = environment.apiUrl;
-    return this.http.get<Event>(`${apiUrl}/${eventId}`);
+    return this.http.get<Event>(`${apiUrl}/events/${eventId}`);
   }
 
   updateEvent(eventId: string, eventData: any): Observable<Event> {
     const apiUrl = environment.apiUrl;
-    return this.http.put<Event>(`${apiUrl}/${eventId}`, eventData);
+    return this.http.put<Event>(`${apiUrl}/events/${eventId}`, eventData);
   }
 }
